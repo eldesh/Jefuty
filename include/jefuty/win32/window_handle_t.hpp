@@ -150,6 +150,53 @@ public:
 		point<LONG> p = relative_coord();
 		::MoveWindow(handle_m, p.x(), p.y(), w, h, TRUE);
 	}
+
+private:
+
+	template<typename T>
+	bool set_window_pos (window_handle_t insert_after, rect<T> const & r, UINT flags) {
+		return ::SetWindowPos(handle_m, insert_after.handle_m
+							, r.origin().x(), r.origin().y()
+							, width(r), height(r), 0) == TRUE;
+	}
+
+public:
+
+	/// A handle to the window to precede the positioned window in the Z order
+	bool insert_after (window_handle_t hwnd) {
+		assert(hwnd);
+		return set_window_pos(hwnd, get_rect(), 0);
+	}
+
+	/// Places the window above all non-topmost top-most windows.
+	/// The window maintains its topmost position even when it is deactivated.
+	bool topmost () {
+		return set_window_pos(window_handle_t(HWND_TOPMOST)  , get_rect(), 0);
+	}
+	bool no_topmost () {
+		return set_window_pos(window_handle_t(HWND_NOTOPMOST), get_rect(), 0);
+	}
+
+	/// Places the window at the top of the Z order.
+	bool top () {
+		return set_window_pos(window_handle_t(HWND_TOP)      , get_rect(), 0);
+	}
+	bool bottom () {
+		return set_window_pos(window_handle_t(HWND_BOTTOM)   , get_rect(), 0);
+	}
+
+	/// activates a window.
+	/// return the handle to the window that previously active
+	window_handle_t active () {
+		return window_handle_t(::SetActiveWindow(handle_m));
+	}
+
+	/// sets the keyboard focus to the specified window.
+	/// return the handle to the window that previous had keyboard focus
+	window_handle_t focus () {
+		return window_handle_t(::SetFocus(handle_m));
+	}
+
 	friend window_handle_t operator<< (window_handle_t hwnd, string const & str);
 };
 
