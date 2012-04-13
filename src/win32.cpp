@@ -6,7 +6,6 @@
 
 namespace jefuty { namespace win32 {
 
-
 HWND create_window(
 	LPCTSTR ClassName,
 	LPCTSTR WindowName,
