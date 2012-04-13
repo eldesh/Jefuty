@@ -1,6 +1,35 @@
 #if !defined JEFUTY_WIN32_INCLUDED
 #define      JEFUTY_WIN32_INCLUDED
 
+
+/****
+ *
+ * Jefuty >> Win32
+ *
+ *     windows API wrapper library
+ *
+ *
+ ** functionalities
+ *     provide abstractions are...
+ *
+ *         - window handle and related messaging system
+ *         - network interface
+ *     future plan
+ *         - interoperable Unicode(and other encodings) string with standard string
+ *
+ ** reference
+ *     windows version
+ *         http://msdn.microsoft.com/en-us/library/aa383745%28v=vs.85%29.aspx
+ *
+ *     predefined macros
+ *         http://msdn.microsoft.com/en-us/library/b0084kay%28v=vs.100%29.aspx
+ *
+ *     windows data types
+ *         http://msdn.microsoft.com/en-us/library/aa383751%28v=VS.85%29.aspx
+ *
+ ****/
+
+
 /// win32
 #if defined _WIN32
 #  include <windows.h>

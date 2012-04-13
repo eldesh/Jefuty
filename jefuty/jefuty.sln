@@ -3,6 +3,11 @@ Microsoft Visual Studio Solution File, Format Version 11.00
 # Visual C++ Express 2010
 Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "jefuty", "jefuty.vcxproj", "{4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76}"
 EndProject
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "test", "..\test\test.vcxproj", "{FAEA98B9-0816-40C5-8FDA-C5F2C5D42BD1}"
+	ProjectSection(ProjectDependencies) = postProject
+		{4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76} = {4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76}
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Win32 = Debug|Win32
@@ -13,6 +18,10 @@ Global
 		{4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76}.Debug|Win32.Build.0 = Debug|Win32
 		{4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76}.Release|Win32.ActiveCfg = Release|Win32
 		{4DB34D6A-88A3-4C3A-ADA0-174D85DE7F76}.Release|Win32.Build.0 = Release|Win32
+		{FAEA98B9-0816-40C5-8FDA-C5F2C5D42BD1}.Debug|Win32.ActiveCfg = Debug|Win32
+		{FAEA98B9-0816-40C5-8FDA-C5F2C5D42BD1}.Debug|Win32.Build.0 = Debug|Win32
+		{FAEA98B9-0816-40C5-8FDA-C5F2C5D42BD1}.Release|Win32.ActiveCfg = Release|Win32
+		{FAEA98B9-0816-40C5-8FDA-C5F2C5D42BD1}.Release|Win32.Build.0 = Release|Win32
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
