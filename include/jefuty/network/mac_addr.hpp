@@ -32,6 +32,7 @@
 #  include <sys/socket.h>
 #  include <netinet/in.h>
 typedef unsigned char BYTE;
+#  define nullptr NULL
 #else
 #  error "unsupported platform..."
 #endif
@@ -48,7 +49,6 @@ enum mac_address_type {
 	EUI64
 };
 
-
 // [#a] -> array<a>
 template<typename T, size_t N>
 std::array<T,N> to_array (T const (&xs)[N]) {
@@ -62,9 +62,21 @@ template<size_t To>
 struct expand_to {
 	template<typename T, size_t From>
 	std::array<T,To> operator() (std::array<T,From> const & xs) const {
-		static_assert(From <= To);
-		result_type ys;
+		//static_assert(From <= To);
+		std::array<T,To> ys;
 		for (size_t i=0; i<From; ++i)
+			ys[i] = xs[i];
+		return ys;
+	}
+};
+
+template<size_t To>
+struct truncate_to {
+	template<typename T, size_t From>
+	std::array<T,To> operator() (std::array<T,From> const & xs) const {
+		//static_assert(From <= To);
+		std::array<T,To> ys;
+		for (size_t i=0; i<To; ++i)
 			ys[i] = xs[i];
 		return ys;
 	}
@@ -72,11 +84,12 @@ struct expand_to {
 
 } // namespace detail
 
+
 struct mac_address {
-#if defined _WIN32
+#if defined WIN32
 	static const std::size_t max_length = MAX_ADAPTER_ADDRESS_LENGTH;
 #else
-#   error
+	static const std::size_t max_length = 8;
 #endif
 private:
 	typedef std::array<byte_t, max_length> address_type;
@@ -97,7 +110,7 @@ public:
 	template<typename T, size_t N>
 	mac_address(std::array<T,N> const & xs) : address_m(xs), size_m(N)
 	{
-		static_assert(N<=max_length);
+		//static_assert(N<=max_length);
 	}
 
 	template<typename T, size_t N>
@@ -109,7 +122,7 @@ public:
 	
 	template<typename T, size_t N>
 	mac_address(T (&xs)[N], typename std::enable_if<(N==max_length)||(N==6)>::type* =nullptr)
-		: address_m(to_array(xs)), size_m(N)
+		: address_m(detail::to_array(xs)), size_m(N)
 	{
 		/* REVISIT: how specify kind of address
 		     if (size_m==6) tag_m = MAC48; // or EUI48
@@ -146,22 +159,6 @@ std::vector<mac_address> mac_addresses (address_family);
 
 // The standard (IEEE 802) format for printing MAC-48 addresses in human-friendly form
 std::ostream & operator<< (std::ostream & os, mac_address const & addr);
-
-#if defined __CYGWIN__
-
-std::vector<ifreq> interfaces (int sock);
-
-struct socket_closer {
-	void operator()(int * s) const {
-		if (s && *s==-1)
-			close(*s);
-		free(s);
-	}
-};
-
-optional<MacAddress> get_mac_address(int sock, ifreq & ifr);
-
-#endif // defined __CYGWIN__
 
 } // namespace network
 } // namespace jefuty
