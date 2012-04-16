@@ -1,6 +1,6 @@
 #include <iostream>
 #include <vector>
-#include <jefuty/network/mac_addr.hpp>
+#include <jefuty/network/network.hpp>
 
 int main () {
 	using std::cout;

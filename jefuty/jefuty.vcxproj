@@ -82,14 +82,17 @@
     </Lib>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="..\src\network\mac_addr.cpp" />
+    <ClCompile Include="..\src\network\detail\mac_addr.cpp" />
+    <ClCompile Include="..\src\network\network.cpp" />
     <ClCompile Include="..\src\win32.cpp" />
+    <ClCompile Include="..\src\win32\detail\if.cpp" />
     <ClCompile Include="..\src\win32\string.cpp" />
     <ClCompile Include="..\src\win32\window_handle_t.cpp" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\jefuty\jefuty.hpp" />
-    <ClInclude Include="..\include\jefuty\network\mac_addr.hpp" />
+    <ClInclude Include="..\include\jefuty\network\detail\if.hpp" />
+    <ClInclude Include="..\include\jefuty\network\detail\mac_addr.hpp" />
     <ClInclude Include="..\include\jefuty\polygon.hpp" />
     <ClInclude Include="..\include\jefuty\win32.hpp" />
     <ClInclude Include="..\include\jefuty\win32\string.hpp" />
