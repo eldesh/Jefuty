@@ -1,0 +1,13 @@
+
+def options(opt):
+	opt.load('compiler_cxx')
+
+def configure(conf):
+	conf.load('compiler_cxx')
+	conf.env.append_unique('CXXFLAGS', ['-std=c++0x', '-g', '-O2'])
+
+def build(bld):
+	bld.stlib(source=['../src/network/mac_addr.cpp'], target='jefuty', includes='../include', name='libjefuty_st', install_path='${LIBDIR}')
+ 	bld.shlib(source=['../src/network/mac_addr.cpp'], target='jefuty', includes='../include', name='libjefuty_sh', install_path='${LIBDIR}')
+	bld.install_files('${PREFIX}/include', bld.path.ant_glob('include/**'))
+
