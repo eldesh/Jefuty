@@ -34,6 +34,9 @@
     <Filter Include="ソース ファイル\network">
       <UniqueIdentifier>{fd01d3e3-32de-42c1-9ce0-25db1627ef24}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ソース ファイル\network\detail">
+      <UniqueIdentifier>{6e98ede7-0c61-47ee-af7a-237c52eefe94}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\win32.cpp">
@@ -48,11 +51,11 @@
     <ClCompile Include="..\src\win32\detail\if.cpp">
       <Filter>ソース ファイル\win32\detail</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\network\detail\mac_addr.cpp">
-      <Filter>ソース ファイル\network</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\network\network.cpp">
       <Filter>ソース ファイル\network</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\network\detail\mac_addr.cpp">
+      <Filter>ソース ファイル\network\detail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,5 +80,16 @@
     <ClInclude Include="..\include\jefuty\network\detail\mac_addr.hpp">
       <Filter>ヘッダー ファイル\network\detail</Filter>
     </ClInclude>
+    <ClInclude Include="..\include\jefuty\array.hpp">
+      <Filter>ヘッダー ファイル</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jefuty\network\network.hpp">
+      <Filter>ヘッダー ファイル\network</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="wscript">
+      <Filter>リソース ファイル</Filter>
+    </None>
   </ItemGroup>
 </Project>

@@ -1,17 +1,6 @@
 #if !defined JEFUTY_NETWORK_NETWORK_INCLUDED
 #define      JEFUTY_NETWORK_NETWORK_INCLUDED
 
-/****
- * wrapper for network adapters
- *
- ** note
- *     if you get error in "intrin.h" like
- *         "...second C linkage of overloaded function '_interlockedbittestandset' not allowed..."
- *     try comment out 2lines as follors at intrin.h
- *         //__MACHINEI(unsigned char _interlockedbittestandset(long *a, long b))
- *         //__MACHINEI(unsigned char _interlockedbittestandreset(long *a, long b))
- ****/
-
 #include <vector>
 
 #include "detail/mac_addr.hpp"
