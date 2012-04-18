@@ -57,6 +57,9 @@
     <ClCompile Include="..\src\network\detail\mac_addr.cpp">
       <Filter>ソース ファイル\network\detail</Filter>
     </ClCompile>
+    <ClCompile Include="..\src\win32\media_foundation.cpp">
+      <Filter>ソース ファイル\win32</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="..\include\jefuty\win32.hpp">
@@ -85,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="..\include\jefuty\network\network.hpp">
       <Filter>ヘッダー ファイル\network</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jefuty\win32\media_foundation.hpp">
+      <Filter>ヘッダー ファイル\win32</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
