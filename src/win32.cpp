@@ -58,35 +58,6 @@ HWND create_window(
 						, parent, menu, handle, param);
 }
 
-namespace detail {
-
-WNDCLASSEX make_wnd_class (HINSTANCE instance, jefuty::win32::string const & winclass, WNDPROC proc, UINT style) {
-	WNDCLASSEX wcex;
-	wcex.cbSize = sizeof(WNDCLASSEX);
-	wcex.style          = style;
-	wcex.lpfnWndProc    = proc;
-	wcex.cbClsExtra     = 0;
-	wcex.cbWndExtra     = 0;
-	wcex.hInstance      = instance;
-	wcex.hIcon          = LoadIcon(instance, MAKEINTRESOURCE(IDI_APPLICATION));
-	wcex.hCursor        = LoadCursor(NULL, IDC_ARROW);
-	wcex.hbrBackground  = (HBRUSH)(COLOR_WINDOW+1);
-	wcex.lpszMenuName   = NULL;
-	wcex.lpszClassName  = winclass.c_str();
-	wcex.hIconSm        = LoadIcon(wcex.hInstance, MAKEINTRESOURCE(IDI_APPLICATION));
-	return wcex;
-}
-
-} // namespace detail
-
-bool register_class (WNDCLASSEX & wnd) {
-	return RegisterClassEx(&wnd) != FALSE;
-}
-bool register_class (window_class & wnd) {
-	return RegisterClassEx(&wnd.wnd_class_m) != FALSE;
-}
-
-
 } // namespace win32
 } // namespace jefuty
 

@@ -87,6 +87,7 @@
     <ClCompile Include="..\src\win32.cpp" />
     <ClCompile Include="..\src\win32\detail\if.cpp" />
     <ClCompile Include="..\src\win32\string.cpp" />
+    <ClCompile Include="..\src\win32\window_class.cpp" />
     <ClCompile Include="..\src\win32\window_handle_t.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -98,6 +99,7 @@
     <ClInclude Include="..\include\jefuty\polygon.hpp" />
     <ClInclude Include="..\include\jefuty\win32.hpp" />
     <ClInclude Include="..\include\jefuty\win32\string.hpp" />
+    <ClInclude Include="..\include\jefuty\win32\window_class.hpp" />
     <ClInclude Include="..\include\jefuty\win32\window_handle_t.hpp" />
   </ItemGroup>
   <ItemGroup>

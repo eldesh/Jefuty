@@ -60,6 +60,7 @@
 #include "../jefuty/polygon.hpp"
 #include "win32/string.hpp"
 #include "win32/window_handle_t.hpp"
+#include "win32/window_class.hpp"
 
 namespace jefuty {
 
@@ -101,32 +102,6 @@ HWND create_window(
 	HWND parent , HMENU menu,
 	HINSTANCE handle, LPVOID param);
 
-namespace detail {
-
-WNDCLASSEX make_wnd_class (HINSTANCE instance, jefuty::win32::string const & winclass, WNDPROC proc, UINT style) ;
-
-} // namespace detail
-
-using detail::make_wnd_class;
-
-class window_class : public boost::noncopyable {
-	//typedef LRESULT (* proc_type)(HWND, UINT, WPARAM, LPARAM);
-	typedef WNDPROC proc_type;
-	WNDCLASSEX wnd_class_m;
-public:
-	window_class::window_class(WNDCLASSEX wnd)
-		: wnd_class_m(wnd)
-	{
-	}
-	window_class::window_class(HINSTANCE instance, string const & winclass, proc_type proc, UINT style)
-		: wnd_class_m(detail::make_wnd_class(instance, winclass, proc, style))
-	{
-	}
-	friend bool register_class(window_class &);
-};
-
-bool register_class (WNDCLASSEX & wnd);
-bool register_class (window_class & wnd);
 
 } // namespace win32
 } // namespace jefuty
