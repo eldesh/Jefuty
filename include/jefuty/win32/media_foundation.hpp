@@ -306,6 +306,10 @@ public:
 	}
 	void stop  () { impl_m->Stop();	 }
 	void pause () { impl_m->Pause(); }
+
+	// http://msdn.microsoft.com/en-us/library/windows/desktop/ms697318%28v=vs.85%29.aspx
+	// Call this method when you are done using the Media Session, before the final call to IUnknown::Release.
+	// Otherwise, your application will leak memory.
 	// ~session () { impl_m->Shutdown(); }
 };
 
