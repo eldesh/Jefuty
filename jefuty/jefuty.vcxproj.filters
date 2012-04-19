@@ -48,9 +48,6 @@
     <ClCompile Include="..\src\win32\window_handle_t.cpp">
       <Filter>ソース ファイル\win32</Filter>
     </ClCompile>
-    <ClCompile Include="..\src\win32\detail\if.cpp">
-      <Filter>ソース ファイル\win32\detail</Filter>
-    </ClCompile>
     <ClCompile Include="..\src\network\network.cpp">
       <Filter>ソース ファイル\network</Filter>
     </ClCompile>
@@ -59,6 +56,9 @@
     </ClCompile>
     <ClCompile Include="..\src\win32\media_foundation.cpp">
       <Filter>ソース ファイル\win32</Filter>
+    </ClCompile>
+    <ClCompile Include="..\src\win32\detail\if.cpp">
+      <Filter>ソース ファイル\win32\detail</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -77,9 +77,6 @@
     <ClInclude Include="..\include\jefuty\polygon.hpp">
       <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
-    <ClInclude Include="..\include\jefuty\network\detail\if.hpp">
-      <Filter>ヘッダー ファイル\win32\detail</Filter>
-    </ClInclude>
     <ClInclude Include="..\include\jefuty\network\detail\mac_addr.hpp">
       <Filter>ヘッダー ファイル\network\detail</Filter>
     </ClInclude>
@@ -91,6 +88,9 @@
     </ClInclude>
     <ClInclude Include="..\include\jefuty\win32\media_foundation.hpp">
       <Filter>ヘッダー ファイル\win32</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jefuty\win32\detail\if.hpp">
+      <Filter>ヘッダー ファイル\win32\detail</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
