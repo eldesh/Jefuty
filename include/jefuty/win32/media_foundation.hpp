@@ -31,6 +31,11 @@
 #include <boost/smart_ptr/intrusive_ptr.hpp>
 #include <boost/noncopyable.hpp>
 #include <boost/optional.hpp>
+#include <boost/mpl/and.hpp>
+#include <boost/utility/enable_if.hpp>
+
+#include <jefuty/type_traits.hpp>
+#include "media/stream_identifier.hpp"
 
 namespace {
 	// used for managing reference count of COM object by boost/intrusive_ptr
@@ -186,6 +191,11 @@ public:
 		if (FAILED(const_cast<wrapped_type*>(get())->GetMediaTypeHandler(&handler)))
 			throw std::runtime_error(__FUNCTION__ " fail");
 		return media_type_handler(handler);
+	}
+	stream_identifier id () const {
+		DWORD id_;
+		impl_m->GetStreamIdentifier(&id_);
+		return stream_identifier(id_);
 	}
 };
 

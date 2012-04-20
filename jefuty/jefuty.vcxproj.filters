@@ -37,6 +37,9 @@
     <Filter Include="ソース ファイル\network\detail">
       <UniqueIdentifier>{6e98ede7-0c61-47ee-af7a-237c52eefe94}</UniqueIdentifier>
     </Filter>
+    <Filter Include="ヘッダー ファイル\win32\media">
+      <UniqueIdentifier>{6da5bfa3-91af-4e4f-97ab-2807493a39d0}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="..\src\win32.cpp">
@@ -91,6 +94,12 @@
     </ClInclude>
     <ClInclude Include="..\include\jefuty\win32\detail\if.hpp">
       <Filter>ヘッダー ファイル\win32\detail</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jefuty\win32\media\stream_identifier.hpp">
+      <Filter>ヘッダー ファイル\win32\media</Filter>
+    </ClInclude>
+    <ClInclude Include="..\include\jefuty\type_traits.hpp">
+      <Filter>ヘッダー ファイル</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
